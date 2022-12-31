@@ -146,12 +146,13 @@ def app_sst():
                     channels=len(audio_frame.layout.channels),
                 )
                 sound_chunk += sound
+                print(sound)
 
             if len(sound_chunk) > 0:
                 sound_chunk = sound_chunk.set_channels(1).set_frame_rate(
                     # model.sampleRate()
                 )
-                print(sound_chunk)
+
                 # buffer = np.array(sound_chunk.get_array_of_samples())
                 # stream.feedAudioContent(buffer)
                 # text = stream.intermediateDecode()

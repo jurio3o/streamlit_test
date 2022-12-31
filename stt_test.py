@@ -129,9 +129,10 @@ def app_sst():
                 status_indicator.write("Model loaded.")
 
             sound_chunk = pydub.AudioSegment.empty()
-            status_indicator.write("흠냐")
+
             try:
                 audio_frames = webrtc_ctx.audio_receiver.get_frames(timeout=1)
+                status_indicator.write("흠냐")
             except queue.Empty:
                 time.sleep(0.1)
                 status_indicator.write("No frame arrived.")

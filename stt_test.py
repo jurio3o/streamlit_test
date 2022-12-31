@@ -133,9 +133,10 @@ def app_sst():
                 #stream을 생성해준다?? 
                 # stream = model.createStream()
 
-                status_indicator.write("Model loaded.")
+                status_indicator.write("stream is none.")
 
             sound_chunk = pydub.AudioSegment.empty()
+            print(type(sound_chunk))
             
             try:
                 audio_frames = webrtc_ctx.audio_receiver.get_frames(timeout=1)

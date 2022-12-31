@@ -150,6 +150,7 @@ def app_sst():
 
             if len(sound_chunk) > 0:
                 sound_chunk = sound_chunk.set_channels(1).set_frame_rate(
+                    16000
                     # model.sampleRate()
                 )
 

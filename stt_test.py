@@ -74,26 +74,28 @@ ViTo STT 적용을 위한 실험 페이지
 """
     )
 
-    # https://github.com/mozilla/DeepSpeech/releases/tag/v0.9.3
-    MODEL_URL = "https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm"  # noqa
-    LANG_MODEL_URL = "https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.scorer"  # noqa
-    MODEL_LOCAL_PATH = HERE / "models/deepspeech-0.9.3-models.pbmm"
-    LANG_MODEL_LOCAL_PATH = HERE / "models/deepspeech-0.9.3-models.scorer"
+    # # https://github.com/mozilla/DeepSpeech/releases/tag/v0.9.3
+    # MODEL_URL = "https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm"  # noqa
+    # LANG_MODEL_URL = "https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.scorer"  # noqa
+    # MODEL_LOCAL_PATH = HERE / "models/deepspeech-0.9.3-models.pbmm"
+    # LANG_MODEL_LOCAL_PATH = HERE / "models/deepspeech-0.9.3-models.scorer"
 
-    download_file(MODEL_URL, MODEL_LOCAL_PATH, expected_size=188915987)
-    download_file(LANG_MODEL_URL, LANG_MODEL_LOCAL_PATH, expected_size=953363776)
+    #모델 다운로드 할 필요 없음 
+    # download_file(MODEL_URL, MODEL_LOCAL_PATH, expected_size=188915987)
+    # download_file(LANG_MODEL_URL, LANG_MODEL_LOCAL_PATH, expected_size=953363776)
 
-    lm_alpha = 0.931289039105002
-    lm_beta = 1.1834137581510284
-    beam = 100
+    # 모델 parameter
+    # lm_alpha = 0.931289039105002
+    # lm_beta = 1.1834137581510284
+    # beam = 100
 
     app_sst(
-        str(MODEL_LOCAL_PATH), str(LANG_MODEL_LOCAL_PATH), lm_alpha, lm_beta, beam
+        # str(MODEL_LOCAL_PATH), str(LANG_MODEL_LOCAL_PATH), lm_alpha, lm_beta, beam
     )
 
 
 
-def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam: int):
+def app_sst():
     webrtc_ctx = webrtc_streamer(
         key="speech-to-text",
         mode=WebRtcMode.SENDONLY,
@@ -116,11 +118,12 @@ def app_sst(model_path: str, lm_path: str, lm_alpha: float, lm_beta: float, beam
             if stream is None:
                 from deepspeech import Model
 
-                model = Model(model_path)
-                model.enableExternalScorer(lm_path)
-                model.setScorerAlphaBeta(lm_alpha, lm_beta)
-                model.setBeamWidth(beam)
+                # model = Model(model_path)
+                # model.enableExternalScorer(lm_path)
+                # model.setScorerAlphaBeta(lm_alpha, lm_beta)
+                # model.setBeamWidth(beam)
 
+                #stream을 생성해준다?? 
                 stream = model.createStream()
 
                 status_indicator.write("Model loaded.")

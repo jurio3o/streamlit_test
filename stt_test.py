@@ -89,9 +89,16 @@ ViTo STT 적용을 위한 실험 페이지
     # lm_beta = 1.1834137581510284
     # beam = 100
 
-    app_sst(
-        # str(MODEL_LOCAL_PATH), str(LANG_MODEL_LOCAL_PATH), lm_alpha, lm_beta, beam
-    )
+    sound_only_page = "Sound only (sendonly)"
+
+    app_mode = st.selectbox("Choose the app mode", [sound_only_page])
+
+    if app_mode == sound_only_page:
+        app_sst(
+            # str(MODEL_LOCAL_PATH), str(LANG_MODEL_LOCAL_PATH), lm_alpha, lm_beta, beam
+        )
+
+
 
 
 

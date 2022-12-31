@@ -116,7 +116,7 @@ def app_sst():
     while True:
         if webrtc_ctx.audio_receiver:
             if stream is None:
-                from deepspeech import Model
+                # from deepspeech import Model
 
                 # model = Model(model_path)
                 # model.enableExternalScorer(lm_path)
@@ -124,7 +124,7 @@ def app_sst():
                 # model.setBeamWidth(beam)
 
                 #stream을 생성해준다?? 
-                stream = model.createStream()
+                # stream = model.createStream()
 
                 status_indicator.write("Model loaded.")
 

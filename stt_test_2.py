@@ -6,9 +6,9 @@ from pathlib import Path
 import numpy as np
 # import soundfile as sf
 import os
-import librosa
+# import librosa
 import glob
-from helper import draw_embed, create_spectrogram, read_audio, record, save_record
+from helper import  read_audio, record, save_record
 
 "# Streamlit showcase"
 
@@ -49,8 +49,8 @@ if st.button(f"Click to Record"):
 
         st.audio(read_audio(path_myrecording))
 
-        fig = create_spectrogram(path_myrecording)
-        st.pyplot(fig)
+        # fig = create_spectrogram(path_myrecording)
+        # st.pyplot(fig)
 
 # "## 2. Choose an audio record"
 

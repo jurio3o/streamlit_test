@@ -134,7 +134,6 @@ def app_sst():
                 # stream = model.createStream()
 
                 status_indicator.write("stream is none.")
-            print("hi")
             sound_chunk = pydub.AudioSegment.empty()
             print(type(sound_chunk))
             

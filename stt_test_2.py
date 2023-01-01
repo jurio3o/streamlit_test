@@ -8,7 +8,9 @@ import numpy as np
 import os
 # import librosa
 import glob
-from helper import  read_audio, record, save_record
+# from helper import  read_audio, record, save_record
+import sounddevice as sd
+import wavio
 
 "# Streamlit showcase"
 
@@ -27,6 +29,12 @@ from helper import  read_audio, record, save_record
 # vocoder.load_model(voc_model_fpath)
 
 # model_load_state.text("Loaded pretrained models!")
+def record(duration=5, fs=48000):
+    sd.default.samplerate = fs
+    sd.default.channels = 1
+    myrecording = sd.rec(int(duration * fs))
+    sd.wait(duration)
+    return myrecording
 
 st.header("1. Record your own voice")
 
@@ -40,6 +48,7 @@ if st.button(f"Click to Record"):
         duration = 5  # seconds
         fs = 48000
         myrecording = record(duration, fs)
+        
         record_state.text(f"Saving sample as {filename}.mp3")
 
         path_myrecording = f"./samples/{filename}.mp3"

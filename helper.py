@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import librosa
 from pathlib import Path
-from encoder.inference import plot_embedding_as_heatmap
+# from encoder.inference import plot_embedding_as_heatmap
 import sounddevice as sd
 import wavio
 

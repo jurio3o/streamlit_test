@@ -9,3 +9,8 @@ streamlit_webrtc==0.43.0
 audio_recorder_streamlit
 
 websockets
+pyaudio
+json
+asyncio
+base64
+auth_key

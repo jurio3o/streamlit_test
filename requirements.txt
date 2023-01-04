@@ -11,7 +11,7 @@ audio_recorder_streamlit
 streamlit
 websockets
 asyncio
-
+base64
 json
 pyaudio
 os

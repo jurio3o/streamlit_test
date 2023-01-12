@@ -1,5 +1,7 @@
 import requests
 import json
+import time
+
 
 def get_token():
     client_id = 'pzlN9dY1ieeJhRyuabq3'
@@ -13,7 +15,7 @@ def get_token():
     return token
 
 # file directory 설정 필수!
-def BitoPost(DIR: str):
+def BitoPost(file_dir: str): #DIR -> file_dir
     config = {
     "diarization": {
         "use_verification": False
@@ -44,12 +46,13 @@ def BitoPost(DIR: str):
 # id 값에 BitoPost 함수의 output 넣어야함
 # STT 성능이 조금 구림,,,(약간의 대기시간 넣어줘야 함)
 def BitoGet(id: str):
-    token = get_token()
-    resp2 = requests.get(
-        'https://openapi.vito.ai/v1/transcribe/'+id,
-        headers={'Authorization': 'bearer '+token},
-    )
-    resp2.raise_for_status()
-    text = resp2.json()
-
-    return ' '.join([i['msg'] for i in text['results']['utterances']])
+        token = get_token()
+        time.sleep(5)
+        resp2 = requests.get(
+            'https://openapi.vito.ai/v1/transcribe/'+id,
+            headers={'Authorization': 'bearer '+token},
+        )
+        resp2.raise_for_status()
+        time.sleep(5)
+        text = resp2.json()
+        return ' '.join([i['msg'] for i in text['results']['utterances']])

@@ -57,7 +57,7 @@ class Recorder:
         for _ in range(int(self.stream_params.rate * duration / self.stream_params.frames_per_buffer)):
             audio_data = self._stream.read(self.stream_params.frames_per_buffer)
             self._wav_file.writeframes(audio_data)
-        text = STT.BitoGet(STT.BitoPost('C://Users/Administrator/Dropbox/adv/test/audio.wav')) # audio.wav를 close 하지 않아도 불러오면 음성이 누적되어있는 파일을 stt 할 수 있음
+        text = STT.BitoGet(STT.BitoPost('C://Users/Administrator/Dropbox/adv/test/audio.wav')) # audio.wav를 close 하지 않아도 불러오면 음성이 누적되어있는 파일을 stt 할 수 있음 => 로컬에서,,
         print(text)
 
         # ★★★★★ py audio를 streamlit에 올렸을 때 어떻게 돌아가는지 알아야함 or streamlit audio recorder 로 바꿀 수 있는지 .. => 로컬에서 실행가능한지도  ★★★★★

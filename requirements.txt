@@ -3,3 +3,6 @@ streamlit
 bokeh
 streamlit-bokeh_events
 streamlit-audiorecorder
+dataclasses
+pyaudio
+wave

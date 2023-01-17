@@ -3,6 +3,7 @@ from audio_recorder_streamlit import audio_recorder
 from io import BytesIO
 from pydub import AudioSegment
 import speech_recognition as sr
+import STT
 
 # import numpy as np
 # from scipy.io.wavfile import write
@@ -47,3 +48,4 @@ for i in result:
     rr.append(i['transcript'])
 rr = '.'.join(rr)
 st.markdown(f'{rr}')
+text = STT.BitoGet(STT.BitoPost('./testttt.wav'))

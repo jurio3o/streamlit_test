@@ -49,3 +49,4 @@ for i in result:
 rr = '.'.join(rr)
 st.markdown(f'{rr}')
 text = STT.BitoGet(STT.BitoPost('./testttt.wav'))
+st.markdown(text)

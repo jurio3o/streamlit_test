@@ -48,5 +48,5 @@ with test as source:
 #     rr.append(i['transcript'])
 # rr = '.'.join(rr)
 # st.markdown(f'{rr}')
-text = STT.BitoGet(STT.BitoPost(audio))
+text = STT.BitoGet(STT.BitoPost(test))
 st.markdown(text)

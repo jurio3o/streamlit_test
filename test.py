@@ -42,11 +42,11 @@ with test as source:
     audio = r.record(source)
 
 
-result = r.recognize_google(audio, language = 'ko-KR', show_all=True)['alternative']
-rr = []
-for i in result:
-    rr.append(i['transcript'])
-rr = '.'.join(rr)
-st.markdown(f'{rr}')
+# result = r.recognize_google(audio, language = 'ko-KR', show_all=True)['alternative']
+# rr = []
+# for i in result:
+#     rr.append(i['transcript'])
+# rr = '.'.join(rr)
+# st.markdown(f'{rr}')
 text = STT.BitoGet(STT.BitoPost(audio))
 st.markdown(text)

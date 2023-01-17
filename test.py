@@ -48,5 +48,5 @@ for i in result:
     rr.append(i['transcript'])
 rr = '.'.join(rr)
 st.markdown(f'{rr}')
-text = STT.BitoGet(STT.BitoPost('./testttt.wav'))
+text = STT.BitoGet(STT.BitoPost(audio))
 st.markdown(text)
